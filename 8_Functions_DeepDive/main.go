@@ -30,8 +30,20 @@ func main() {
 	fmt.Println("by anonymous funcs: ", transformedNumbers)
 
 	// closures
-	fmt.Println("doubled with closures ", createTransformer(2))
-	fmt.Println("doubled with closures ", createTransformer(3))
+	doubled := createTransformer(2)
+	tripled := createTransformer(3)
+	fmt.Println("doubled with closures ", transformNumbers(&numbers, doubled))
+	fmt.Println("doubled with closures ", transformNumbers(&numbers, tripled))
+
+	// recursions
+	fmt.Println(factorial(5))
+
+	// Variadic functions
+	fmt.Println("sum up of numbers= ", sumUp(1, 2, 3, 4))
+	fmt.Println("sum up of numbers= ", sumUp2(1, 2, 3, 4))
+
+	// now instead of writing the array in separated form, if we want to pass the array as separate entities
+	fmt.Println(sumUp2(numbers[0], numbers...))
 }
 
 // passing functions as param in functions
@@ -66,4 +78,31 @@ func createTransformer(factor int) func(int) int {
 	return func(number int) int {
 		return number * factor
 	}
+}
+
+// recursions
+
+func factorial(num int) int {
+	if num == 0 {
+		return 1
+	}
+	return num * factorial(num-1)
+}
+
+// Variadic functions
+
+func sumUp(numbers ...int) int {
+	var sum int = 0
+	for i := 0; i < len(numbers); i++ {
+		sum = sum + numbers[i]
+	}
+	return sum
+}
+
+func sumUp2(num1 int, numbers ...int) int {
+	var sum int = 0
+	for i := 0; i < len(numbers); i++ {
+		sum = sum + numbers[i]
+	}
+	return sum - num1
 }
