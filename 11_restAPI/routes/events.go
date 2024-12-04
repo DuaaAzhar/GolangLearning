@@ -25,7 +25,6 @@ func createEvent(context *gin.Context) {
 	// BindJSON to bind the received JSON to new event
 	// it works like Scan
 	err := context.BindJSON(&event)
-	fmt.Println(event)
 
 	if err != nil {
 		fmt.Println(err)
