@@ -1,0 +1,10 @@
+PUT http://localhost:8080/projects/1
+Content-Type: application/json
+
+{
+    "name": "Updated Project",
+    "description": "Updated Project Description",
+    "location": "Updated Project Location",
+    "created-at": "2025-01-01T15:30:00.000Z",
+    "updated-at": "2025-01-01T15:30:00.000Z"
+}
