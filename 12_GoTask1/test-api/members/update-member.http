@@ -1,0 +1,7 @@
+PUT http://localhost:8080/team-members/3
+Content-Type: application/json
+
+{
+    "name": "Hussam Mustafa",
+    "email": "hussamMustafa@gmail.com"
+}

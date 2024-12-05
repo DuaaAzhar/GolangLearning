@@ -1,0 +1,8 @@
+POST http://localhost:8080/projects/4/tasks
+Content-Type: application/json
+
+{
+    "title": "Sample Task3",
+    "description": "Sample Task Description3",
+    "status": "pending"
+}

@@ -1,0 +1,9 @@
+PUT http://localhost:8080/tasks/1
+Content-Type: application/json
+
+{
+    "title": "Updated Task1",
+    "description": "Updated Task Description1",
+    "status": "in_progress",
+    "project_id": 4
+}

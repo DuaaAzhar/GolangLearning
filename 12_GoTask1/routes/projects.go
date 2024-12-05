@@ -27,7 +27,7 @@ func createProject(context *gin.Context) {
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Unable to parse request data"})
 		return
 	}
-	project.ID = 1
+
 	project.CreatedAt = time.Now()
 	project.UpdatedAt = time.Now()
 
@@ -75,6 +75,7 @@ func updateProject(context *gin.Context) {
 	}
 
 	project.ID = projectId
+	project.UpdatedAt = time.Now()
 	err = project.Update()
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Unable to Update project"})
