@@ -26,6 +26,11 @@ func RegisterRoutes(server *gin.Engine) {
 	server.DELETE("team-members/:id", deleteMember)
 
 	// Task Assignment Routes
-	server.PUT("/tasks/{id}/assign")
+
+	server.POST("/tasks/:id/assign", assignTask)
+	server.DELETE("/tasks/:id/assign", unAssignTask)
+	server.GET("/tasks/:id/assign", getAssignmentByTaskId)
+	server.GET("/members/:id/assign", getAssignmentByMemberId)
+	server.GET("/assignments", getAllAssignments)
 
 }

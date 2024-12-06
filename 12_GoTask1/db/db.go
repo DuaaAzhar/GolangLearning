@@ -74,12 +74,12 @@ func createTables() {
 	createTaskAssignmentTable := `
 	CREATE TABLE IF NOT EXISTS task_assignments(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	created_at DATETIME NOT NULL,
-	updated_at DATETIME NOT NULL,
-	task_id INTEGER,
-	FOREIGN KEY(task_id) REFERENCES tasks(id),
-	member_id INTEGER,
-	FOREIGN KEY(member_id) REFERENCES members(id)
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    task_id INTEGER NOT NULL,
+    member_id INTEGER NOT NULL,
+    FOREIGN KEY(task_id) REFERENCES tasks(id),
+    FOREIGN KEY(member_id) REFERENCES members(id)
 	)
 	`
 	_, err = DB.Exec(createTaskAssignmentTable)

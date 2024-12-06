@@ -138,6 +138,12 @@ func deleteTask(context *gin.Context) {
 		return
 	}
 
+	_, err = models.GetAssignmentByTaskId(taskId)
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"message": "Failed! This task has pending assignments"})
+		return
+	}
+
 	err = task.Delete()
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Unable to Delete task"})

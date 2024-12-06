@@ -82,7 +82,6 @@ func updateMember(context *gin.Context) {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Unable to Update member"})
 	}
 	context.JSON(http.StatusOK, gin.H{"message": "Successfully updated member!"})
-	return
 }
 
 func deleteMember(context *gin.Context) {
@@ -95,6 +94,12 @@ func deleteMember(context *gin.Context) {
 	member, err := models.GetMemberById(memberId)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Unable to fetch member"})
+		return
+	}
+
+	_, err = models.GetAssignmentByMemberId(memberId)
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"message": "Failed! This Member has pending assignments"})
 		return
 	}
 
