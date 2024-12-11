@@ -33,4 +33,7 @@ func RegisterRoutes(server *gin.Engine) {
 	server.GET("/members/:id/assign", getAssignmentByMemberId)
 	server.GET("/assignments", getAllAssignments)
 
+	// delete tables
+	server.DELETE("/tasks", deleteTask)
+
 }

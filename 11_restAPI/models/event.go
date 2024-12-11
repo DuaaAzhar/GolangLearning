@@ -12,7 +12,7 @@ type Event struct {
 	Description string    `json:"description"`
 	Location    string    `json:"location"`
 	DateTime    time.Time `json:"date-time"`
-	UserID      int       `json:"user-id"`
+	UserID      int64     `json:"user-id"`
 }
 
 func (e Event) Save() error {
@@ -88,10 +88,7 @@ func (event Event) Update() error {
 }
 
 func (event Event) Delete() error {
-	query := `
-	Delete events
-	WHERE id = ?
-	`
+	query := `Delete from events WHERE id = ?`
 	stmt, err := db.DB.Prepare(query)
 	if err != nil {
 		return err

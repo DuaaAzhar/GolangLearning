@@ -1,10 +1,8 @@
-PUT http://localhost:8080/projects/1
+PUT http://localhost:8080/projects/8
 Content-Type: application/json
 
 {
-    "name": "Updated Project",
-    "description": "Updated Project Description",
-    "location": "Updated Project Location",
-    "created-at": "2025-01-01T15:30:00.000Z",
-    "updated-at": "2025-01-01T15:30:00.000Z"
+    "name": "Updated 8th Project",
+    "description": "Updated 8th Project Description",
+    "location": "Updated 8th Project Location"
 }

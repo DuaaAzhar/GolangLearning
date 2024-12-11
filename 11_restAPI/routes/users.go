@@ -29,6 +29,7 @@ func signup(context *gin.Context) {
 }
 
 func login(context *gin.Context) {
+
 	var user models.User
 
 	err := context.ShouldBindJSON(&user)
@@ -43,9 +44,10 @@ func login(context *gin.Context) {
 		return
 	}
 
+	fmt.Println("userId in login ===>>>", user.ID)
 	token, err := utils.GenerateToken(user.Email, user.ID)
 	if err != nil {
-		context.JSON(http.StatusInternalServerError, gin.H{"message:": "can not fetch authenticated user."})
+		context.JSON(http.StatusInternalServerError, gin.H{"message:": "can not authenticate user."})
 		return
 	}
 	context.JSON(http.StatusOK, gin.H{"message": "Login Successfully!!", "token": token})

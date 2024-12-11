@@ -102,7 +102,7 @@ func GetUserByID(userId int64) (*User, error) {
 	return &user, nil
 }
 
-func (u User) ValidateUser() error {
+func (u *User) ValidateUser() error {
 	query := `SELECT id, password FROM users WHERE email= ?`
 	row := db.DB.QueryRow(query, u.Email)
 

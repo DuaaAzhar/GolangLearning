@@ -56,7 +56,8 @@ func createTask(context *gin.Context) {
 	// validating status
 	err = task.SetStatus(task.TaskStatus)
 	if err != nil {
-		context.JSON(http.StatusBadRequest, err)
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Unable to set Status"})
+		return
 	}
 
 	fmt.Println("project ===>>", task)

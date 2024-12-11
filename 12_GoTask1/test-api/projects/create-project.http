@@ -2,7 +2,7 @@ POST http://localhost:8080/projects
 Content-Type: application/json
 
 {
-    "name": "3rd Sample Project",
-    "description": "3rd Sample Project Description",
-    "location": "3rd Sample Project Location"
+    "name": "8th Sample Project",
+    "description": "8th Sample Project Description",
+    "location": "8th Sample Project Location"
 }
