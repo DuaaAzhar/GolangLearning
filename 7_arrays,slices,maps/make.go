@@ -1,6 +1,7 @@
 // make function for arrays and maps
 // type aliases
 // for loops with maps and arrays
+
 package main
 
 import (
@@ -14,7 +15,7 @@ func Output(m floatMap) {
 	fmt.Println(m)
 }
 
-func main() {
+func makeFunction() {
 	// 2= length of array , 5= capacity of array
 	userNames := make([]string, 2, 5)
 	fmt.Println(userNames)

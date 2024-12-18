@@ -56,4 +56,5 @@ func main() {
 	decreasingNumbers := []int{10, 9, 8, 7, 6}
 	numbers = append(numbers, decreasingNumbers...)
 	fmt.Println(numbers)
+
 }

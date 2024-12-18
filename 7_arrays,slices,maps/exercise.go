@@ -34,6 +34,7 @@ func main() {
 
 	// -----------------------------------2-------------------------------
 	fmt.Println(hobbies[0])
+
 	fmt.Println(hobbies[1:3])
 	// or
 	fmt.Println(hobbies[1:])

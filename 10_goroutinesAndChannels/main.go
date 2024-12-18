@@ -9,8 +9,11 @@ import (
 
 func main() {
 	taxRates := []float64{0, 0.07, 0.1, 0.15}
+
 	dones := make([]chan bool, len(taxRates))
+
 	errChans := make([]chan error, len(taxRates))
+
 	for index, taxRate := range taxRates {
 		dones[index] = make(chan bool)
 		errChans[index] = make(chan error)
